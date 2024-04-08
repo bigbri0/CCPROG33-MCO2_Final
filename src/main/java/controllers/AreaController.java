@@ -1,10 +1,11 @@
-package forms;
+package controllers;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
 
+import View.AreaView;
 import forms.Area;
 
 public  class AreaController implements ActionListener {
