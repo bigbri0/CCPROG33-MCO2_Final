@@ -1,4 +1,4 @@
-package forms;
+package controllers;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -8,6 +8,9 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import javax.swing.JOptionPane;
+
+import View.BattleView;
+import forms.Battle;
 
 public  class BattleController implements ActionListener {
     private ActionState actionState;

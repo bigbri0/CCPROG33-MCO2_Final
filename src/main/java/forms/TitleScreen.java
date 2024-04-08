@@ -1,20 +1,18 @@
 package forms;
 
 import java.awt.*;
-import java.awt.event.*;
 
 import javax.swing.*;
 
 import util.custom.Button;
 import util.custom.UIHelper;
 
-class TitleScreen {
-    public static class View extends JPanel {
+class TitleScreen extends JPanel{
         private JLabel titleLbl;
         private Button createButton;
         private Button exitButton;
         
-        public View() {
+        public TitleScreen() {
             initComponents();
 
         }
@@ -37,14 +35,14 @@ class TitleScreen {
             gbc.gridy++;
             createButton = new Button("Create Character");
             createButton.setPreferredSize(new Dimension( 350, 50 ));
-            createButton.addActionListener(new Controller(Controller.ActionState.START, this));
+            createButton.addActionListener(new TitleScreenController(TitleScreenController.ActionState.START, this));
             add(createButton, gbc);
 
 
             gbc.gridy++;
             exitButton = new Button("Exit");
             exitButton.setPreferredSize(new Dimension( 350, 50 ));
-            exitButton.addActionListener(new Controller(Controller.ActionState.BACK, this));
+            exitButton.addActionListener(new TitleScreenController(TitleScreenController.ActionState.BACK, this));
             add(exitButton, gbc);
 
         }
@@ -54,39 +52,4 @@ class TitleScreen {
         }
 
     }
-
-    public static class Controller implements ActionListener {
-        private ActionState actionState;
-        private View view;
-
-        enum ActionState {
-            START,
-            BACK
-        }
-
-        public Controller(ActionState actionState, View view) {
-            this.actionState = actionState;
-            this.view = view;
-        }
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            switch (actionState) {
-                case START:
-                    view.getFrame().setView("CharacterCreation");
-                    break;
-                case BACK:
-                    int confirm = JOptionPane.showConfirmDialog(view.getFrame(), "Are you sure you want to exit?", "Confirmation", JOptionPane.YES_NO_OPTION);
-                    if (confirm == JOptionPane.YES_OPTION) {
-                        System.exit(0);
-                    }
-                    break;
-            }
-        }
-
-        public View getView() {
-            return view;
-        }
-    }
-}
-
+   

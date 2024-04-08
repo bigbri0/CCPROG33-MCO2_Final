@@ -30,7 +30,7 @@ public class Battle {
         public double enemyIntelligenceDefense;
         public double enemyFaithDefense;
 
-        protected int nextEnemyAttack;
+        public int nextEnemyAttack;
         
         public int playerHealth;
         public int playerAttack;

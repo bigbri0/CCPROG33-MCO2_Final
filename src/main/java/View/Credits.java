@@ -1,7 +1,9 @@
-package forms;
+package View;
 
 import java.awt.*;
 import javax.swing.*;
+
+import forms.MainMenu;
 import util.custom.Button;
 import util.custom.UIHelper;
 /**
@@ -10,11 +12,11 @@ import util.custom.UIHelper;
  * @Authors Roj Friginal, Brian Santamaria
 
  */
-public class Credits {
+public class Credits extends JPanel  {
     /**
      * The View class is responsible for the visual representation of the Credits screen.
      */
-    public static class View extends JPanel {
+
         private JLabel titleLbl;
         private JLabel subtitleLbl;
 
@@ -27,7 +29,7 @@ public class Credits {
          * Constructor for the View class.
          * It initializes the components of the Credits screen.
          */
-        public View() {
+        public Credits() {
             initComponents();
         }
         /**
@@ -142,4 +144,3 @@ public class Credits {
             return (MainMenu.View) SwingUtilities.getWindowAncestor(this);
         }
     }
-}

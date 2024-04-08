@@ -1,4 +1,4 @@
-package forms;
+package View;
 
 import java.awt.*;
 import java.awt.geom.*;
@@ -6,6 +6,9 @@ import java.awt.geom.*;
 import javax.swing.*;
 import javax.swing.border.*;
 
+import controllers.BattleController;
+import forms.Battle;
+import forms.MainMenu;
 
 import java.util.List;
 

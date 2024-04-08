@@ -5,6 +5,10 @@ import java.awt.event.*;
 import javax.swing.*;
 
 import View.AreaView;
+import View.BattleView;
+import View.CharacterCreationView;
+import View.Credits;
+import View.FastTravelView;
 import util.custom.UIHelper;
 import util.PlayerInfo;
 
@@ -97,13 +101,13 @@ public class MainMenu {
 
             view.addView(new AreaView(model.getPlayerInfo()), "Area");
             view.addView(new BattleView(model.getPlayerInfo()), "Battle");
-            view.addView(new TitleScreen.View(), "TitleScreen");
-            view.addView(new CharacterCreation.View(model.getPlayerInfo()), "CharacterCreation");
-            view.addView(new GameLobby.View(model.getPlayerInfo()), "GameLobby");
-            view.addView(new FastTravel.View(model.getPlayerInfo()), "FastTravel");
-            view.addView(new LevelUp.View(model.getPlayerInfo()), "LevelUp");
-            view.addView(new Inventory.View(model.getPlayerInfo()), "Inventory");
-            view.addView(new Credits.View(), "Credits");
+            view.addView(new TitleScreen(), "TitleScreen");
+            view.addView(new CharacterCreationView(model.getPlayerInfo()), "CharacterCreation");
+            view.addView(new GameLobbyView(model.getPlayerInfo()), "GameLobby");
+            view.addView(new FastTravelView(model.getPlayerInfo()), "FastTravel");
+            view.addView(new LevelUpView(model.getPlayerInfo()), "LevelUp");
+            view.addView(new InventoryView(model.getPlayerInfo()), "Inventory");
+            view.addView(new Credits(), "Credits");
             
             view.setView("TitleScreen");
         }
