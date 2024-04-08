@@ -97,7 +97,7 @@ public class MainMenu {
             view.addView(new CharacterCreation.View(model.getPlayerInfo()), "CharacterCreation");
             view.addView(new GameLobby.View(model.getPlayerInfo()), "GameLobby");
             view.addView(new FastTravel.View(model.getPlayerInfo()), "FastTravel");
-            view.addView(new Area.View(model.getPlayerInfo()), "Area");
+            view.addView(new AreaView(model.getPlayerInfo()), "Area");
             view.addView(new Battle.View(model.getPlayerInfo()), "Battle");
             view.addView(new LevelUp.View(model.getPlayerInfo()), "LevelUp");
             view.addView(new Inventory.View(model.getPlayerInfo()), "Inventory");
