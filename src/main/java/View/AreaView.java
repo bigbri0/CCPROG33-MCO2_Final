@@ -1,4 +1,4 @@
-package forms;
+package View;
 
 import java.util.List;
 
@@ -11,8 +11,11 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
-import forms.AreaController;
+
+import controllers.AreaController;
 import forms.Area;
+import forms.MainMenu;
+import forms.MainMenu.View;
 import util.custom.Button;
 import util.custom.Tile;
 import util.custom.UIHelper;

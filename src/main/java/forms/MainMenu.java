@@ -3,6 +3,8 @@ package forms;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+
+import View.AreaView;
 import util.custom.UIHelper;
 import util.PlayerInfo;
 
