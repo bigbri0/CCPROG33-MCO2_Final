@@ -137,11 +137,8 @@ public class Battle {
         public int getEnemyAttack() {
             List enemy = enemyType.get((int) (Math.random() * enemyType.size()));
 
-            if (playerInfo.getSelectedAreaFloor() == 0) {
+            if (playerInfo.getSelectedAreaFloor() == 2) {
                 enemy = bossList.get((int) (Math.random() * bossList.size()));
-            }
-            else if (playerInfo.getSelectedAreaFloor() == 1) {
-                enemy = bossList.get((int) 2);
             }
 
             int enemyAttackMin = (int) ((List) enemy.get(2)).get(0);
@@ -161,11 +158,11 @@ public class Battle {
             List enemy = enemyType.get((int) (Math.random() * enemyType.size()));
 
             if (playerInfo.getSelectedAreaFloor() == 2){
-                enemy = bossList.get((int) 3);
+                enemy = bossList.get((int) (Math.random() * bossList.size()));
             }
 
             int enemyAttackMin = (int) ((List) enemy.get(2)).get(0);
-            int enemyAttackMax = (int) ((List) enemy.get(2)).get(2);
+            int enemyAttackMax = (int) ((List) enemy.get(2)).get(1);
 
             int attack = (int) (enemyAttackMin + Math.random() * (enemyAttackMax - enemyAttackMin) * (playerInfo.getSelectedAreaFloor()+1));
 
