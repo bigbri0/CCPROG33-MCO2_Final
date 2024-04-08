@@ -1,4 +1,4 @@
-package com.eldenrouge.forms;
+package forms;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -7,10 +7,10 @@ import java.util.List;
 
 import javax.swing.*;
 
-import com.eldenrouge.util.custom.Button;
-import com.eldenrouge.util.custom.Tile;
-import com.eldenrouge.util.custom.UIHelper;
-import com.eldenrouge.util.PlayerInfo;
+import util.custom.Button;
+import util.custom.Tile;
+import util.custom.UIHelper;
+import util.PlayerInfo;
 
 public class Area {
     public static class Model {

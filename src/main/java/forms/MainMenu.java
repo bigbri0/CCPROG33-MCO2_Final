@@ -1,10 +1,10 @@
-package com.eldenrouge.forms;
+package forms;
 
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import com.eldenrouge.util.custom.UIHelper;
-import com.eldenrouge.util.PlayerInfo;
+import util.custom.UIHelper;
+import util.PlayerInfo;
 
 public class MainMenu {
     public static class Model {

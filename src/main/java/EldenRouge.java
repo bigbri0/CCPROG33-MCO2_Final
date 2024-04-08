@@ -1,10 +1,10 @@
-package com.eldenrouge;
+
 
 import java.awt.*;
 import java.io.*;
 import javax.swing.*;
 
-import com.eldenrouge.forms.MainMenu;
+import forms.MainMenu;
 
 
 /**

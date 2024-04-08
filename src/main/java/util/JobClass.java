@@ -1,4 +1,4 @@
-package com.eldenrouge.util;
+package util;
 /**
  * This class represents a job class in the EldenRouge game.
  * A job class has a name and various attributes that affect the player's stats.

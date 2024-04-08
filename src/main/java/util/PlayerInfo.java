@@ -1,11 +1,11 @@
-package com.eldenrouge.util;
+package util;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.eldenrouge.util.Item.ItemType;
+import util.Item.ItemType;
 /**
  * This class represents a player in the EldenRouge game.
  * It holds the player's information such as name, level, current health, runes, job class, and inventory.

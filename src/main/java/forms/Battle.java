@@ -1,4 +1,4 @@
-package com.eldenrouge.forms;
+package forms;
 
 
 import java.awt.*;
@@ -14,10 +14,10 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 
-import com.eldenrouge.util.custom.Button;
-import com.eldenrouge.util.custom.ProgressBar;
-import com.eldenrouge.util.custom.UIHelper;
-import com.eldenrouge.util.PlayerInfo;
+import util.custom.Button;
+import util.custom.ProgressBar;
+import util.custom.UIHelper;
+import util.PlayerInfo;
 /**
  * This class represents the Battle screen of the EldenRouge game.
  * It allows the player to engage in battles with enemies.

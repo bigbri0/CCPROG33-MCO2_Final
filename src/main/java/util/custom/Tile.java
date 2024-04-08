@@ -1,4 +1,4 @@
-package com.eldenrouge.util.custom;
+package util.custom;
 
 import javax.swing.border.*;
 import java.awt.*;

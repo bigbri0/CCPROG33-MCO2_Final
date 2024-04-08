@@ -1,4 +1,4 @@
-package com.eldenrouge.util;
+package util;
 /**
  * This class holds the game statistics for the EldenRouge game.
  * It includes arrays of different job classes and items available in the game.

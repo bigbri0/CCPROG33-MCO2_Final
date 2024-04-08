@@ -1,12 +1,12 @@
-package com.eldenrouge.forms;
+package forms;
 
 import java.awt.*;
 import java.awt.event.*;
 
 import javax.swing.*;
 
-import com.eldenrouge.util.custom.Button;
-import com.eldenrouge.util.custom.UIHelper;
+import util.custom.Button;
+import util.custom.UIHelper;
 
 class TitleScreen {
     public static class View extends JPanel {

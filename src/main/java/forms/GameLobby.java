@@ -1,12 +1,12 @@
-package com.eldenrouge.forms;
+package forms;
 
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.geom.*;
 import javax.swing.*;
-import com.eldenrouge.util.custom.Button;
-import com.eldenrouge.util.custom.UIHelper;
-import com.eldenrouge.util.PlayerInfo;
+import util.custom.Button;
+import util.custom.UIHelper;
+import util.PlayerInfo;
 
 public class GameLobby {
     public static class Model {

@@ -1,4 +1,4 @@
-package com.eldenrouge.util.custom;
+package util.custom;
 
 import java.awt.Color;
 import java.awt.Dimension;

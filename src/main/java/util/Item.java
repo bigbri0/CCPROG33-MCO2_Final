@@ -1,4 +1,4 @@
-package com.eldenrouge.util;
+package util;
 
 /**
  * This class represents an item in the EldenRouge game.

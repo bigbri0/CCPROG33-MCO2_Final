@@ -1,5 +1,5 @@
 
-package com.eldenrouge.forms;
+package forms;
 
 
 import java.awt.*;
@@ -7,12 +7,12 @@ import java.awt.event.*;
 import javax.swing.*;
 
 
-import com.eldenrouge.util.custom.Button;
-import com.eldenrouge.util.custom.TextField;
-import com.eldenrouge.util.custom.UIHelper;
-import com.eldenrouge.util.GameStats;
-import com.eldenrouge.util.JobClass;
-import com.eldenrouge.util.PlayerInfo;
+import util.custom.Button;
+import util.custom.TextField;
+import util.custom.UIHelper;
+import util.GameStats;
+import util.JobClass;
+import util.PlayerInfo;
 
 /**
  * This class represents the Character Creation screen of the EldenRouge game.

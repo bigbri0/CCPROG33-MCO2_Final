@@ -1,9 +1,9 @@
-package com.eldenrouge.forms;
+package forms;
 
 import java.awt.*;
 import javax.swing.*;
-import com.eldenrouge.util.custom.Button;
-import com.eldenrouge.util.custom.UIHelper;
+import util.custom.Button;
+import util.custom.UIHelper;
 /**
  * This class represents the Credits screen of the EldenRouge game.
  * It displays the developers and special thanks.
