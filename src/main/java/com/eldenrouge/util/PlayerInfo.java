@@ -227,7 +227,7 @@ public class PlayerInfo {
 
     public void addRunes(int runes) {
         int oldRunes = this.runes;
-        this.runes += runes*20;
+        this.runes += runes;
         propertyChangeSupport.firePropertyChange("runes", oldRunes, this.runes);
     }
 
