@@ -32,40 +32,53 @@ public class Battle {
         private PlayerInfo playerInfo;
         public List<List> enemyType;
         public List<List> bossList;
+
         public String enemyName;
-        public int enemyHealth, enemyAttack, maxEnemyHealth;
-        public double enemyStrengthDefense, enemyIntelligenceDefense, enemyFaithDefense;
+        public int enemyHealth;
+        public int maxEnemyHealth;
+        public int enemyAttack;
+        public double enemyStrengthDefense;
+        public double enemyIntelligenceDefense;
+        public double enemyFaithDefense;
+
         private int nextEnemyAttack;
+        
+        public int playerHealth;
+        public int playerAttack;
+        public double playerStrengthDefense;
+        public double playerIntelligenceDefense;
+        public double playerFaithDefense;
+
         public boolean isPlayerTurn;
         public boolean isBoss;
+
         public double enemyStrength = 1;
+
+
         public PropertyChangeSupport propertyChangeSupport;
-        /**
-         * Constructor for the Model class.
-         * It initializes the enemy types and bosses.
-         */
+        
         public Model() {
             enemyType = List.of(
-                    List.of(
-                            List.of("Godrick Soldier", "Living Jar"),
-                            List.of(20, 30), List.of(70, 80), 0.20, 0.15, 0.10),
-                    List.of(
-                            List.of("Godrick Archer", "Glintstone Sorcerer"),
-                            List.of(25, 35), List.of(110, 120), 0.50, 0.15, 0.30),
-                    List.of(
-                            List.of("Godrick Knight", "Battlemage"),
-                            List.of(70, 80), List.of(120, 130), 0.25, 0.25, 0.20)
+                List.of(
+                    List.of("Godrick Soldier", "Living Jar"),
+                    List.of(20, 30), List.of(70, 80), 0.20, 0.15, 0.10),
+                List.of(
+                    List.of("Godrick Archer", "Glintstone Sorcerer"),
+                    List.of(25, 35), List.of(110, 120), 0.50, 0.15, 0.30),
+                List.of(
+                    List.of("Godrick Knight", "Battlemage"),
+                    List.of(70, 80), List.of(120, 130), 0.25, 0.25, 0.20)
             );
             bossList = List.of(
-                    List.of(
-                            "Godrick the Grafted",
-                            200, List.of(100, 300), 0.35, 0.20, 0.15),
-                    List.of(
-                            "Rennala, Queen of the Full Moon ",
-                            400, List.of(200, 300), 0.15, 0.35, 0.25),
-                    List.of(
-                            "The Elden Beast",
-                            800, List.of(250, 500), 0.25, 0.50, 0.40)
+                List.of(
+                    "Godrick the Grafted",
+                    200, List.of(100, 300), 0.35, 0.20, 0.15),
+                List.of(
+                    "Rennala, Queen of the Full Moon",
+                    400, List.of(200, 300), 0.15, 0.35, 0.25),
+                List.of(
+                    "The Elden Beast",
+                    800, List.of(250, 500), 0.25, 0.50, 0.40)
             );
 
             propertyChangeSupport = new PropertyChangeSupport(this);
@@ -110,8 +123,12 @@ public class Battle {
             enemyStrengthDefense = (double) enemy.get(3);
             enemyIntelligenceDefense = (double) enemy.get(4);
             enemyFaithDefense = (double) enemy.get(5);
+
             propertyChangeSupport.firePropertyChange("enemy", null, null);
+
             isPlayerTurn = true;
+
+
         }
 
         /**
@@ -120,7 +137,7 @@ public class Battle {
         public int getEnemyAttack() {
             List enemy = enemyType.get((int) (Math.random() * enemyType.size()));
 
-            if (playerInfo.getSelectedAreaFloor() == 2) {
+            if (playerInfo.getSelectedAreaFloor() == 1) {
                 enemy = bossList.get((int) (Math.random() * bossList.size()));
             }
 
@@ -262,11 +279,30 @@ public class Battle {
     }
 
     public static class View extends JPanel {
+        private JLabel titleLbl;
+        private JLabel subtitleLbl;
 
-        private JPanel contentPnl, playerPanel, enemyPanel, actionButtonPanel;
-        private JLabel playerInfo, playerImageLabel, playerName, enemyInfo, enemyImageLabel, enemyNameLabel, actionButtonsLabel;
-        private ProgressBar playerHealthBar, enemyHealthBar;
-        private Button strengthButton, intelligenceButton, faithButton, dodgeButton;
+        private JPanel contentPnl;
+        private JPanel playerPanel;
+        private JLabel playerInfo;
+        private JLabel playerImageLabel;
+        private JLabel playerName;
+        private ProgressBar playerHealthBar;
+
+        private JPanel enemyPanel;
+        private JLabel enemyInfo;
+        private JLabel enemyImageLabel;
+        private JLabel enemyNameLabel;
+        private ProgressBar enemyHealthBar;
+
+        private JPanel actionPanel;
+        private JPanel actionButtonPanel;
+        private JLabel actionButtonsLabel;
+        private Button strengthButton;
+        private Button intelligenceButton;
+        private Button faithButton;
+        private Button dodgeButton;
+
         private Model model;
 
         public View(PlayerInfo playerInfo) {
@@ -284,14 +320,14 @@ public class Battle {
             gbc.gridy = 0;
             gbc.gridwidth = 2;
             gbc.insets.set(25, 0, 0, 0);
-            JLabel titleLbl=new JLabel("Elden rougE");
+            titleLbl = new JLabel("Elden rougE");
             titleLbl.setFont(new Font("Mantinia", Font.BOLD, 75));
             titleLbl.setForeground(UIHelper.colorTertiary);
             add(titleLbl, gbc);
 
             gbc.insets.set(-40, 0, 15, 0);
             gbc.gridy++;
-            JLabel subtitleLbl=new JLabel("battle");
+            subtitleLbl = new JLabel("battle");
             subtitleLbl.setFont(new Font("Mantinia", Font.BOLD, 28));
             subtitleLbl.setForeground(UIHelper.colorPrimary);
             add(subtitleLbl, gbc);
@@ -373,11 +409,11 @@ public class Battle {
                 playerGbc.weighty = 1;
                 playerGbc.gridheight = 1;
                 playerGbc.insets.set(0, 0, 0, 15);
-                JPanel actionPanel=new JPanel(){
+                actionPanel = new JPanel() {
                     @Override
-                    protected void paintComponent (Graphics g){
+                    protected void paintComponent(Graphics g) {
                         super.paintComponent(g);
-                        Graphics2D g2d=(Graphics2D) g;
+                        Graphics2D g2d = (Graphics2D) g;
                         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
                         g2d.setColor(UIHelper.colorPrimary);
                         g2d.fillRoundRect(0, 0, getWidth(), getHeight(), 20, 20);
@@ -547,6 +583,12 @@ public class Battle {
 
             }
 
+
+
+
+
+
+
             model.addPropertyChangeListener(
                     evt -> {
                         playerImageLabel.setIcon(
@@ -574,7 +616,7 @@ public class Battle {
                     evt -> {
                         if (evt.getPropertyName().equals("playerPosition")) {
                             if (((List)evt.getNewValue()).get(1).equals("SE")||
-                                    ((List) evt.getNewValue()).get(1).equals("BE")){
+                                ((List) evt.getNewValue()).get(1).equals("BE")){
 
                                 if (((List)evt.getNewValue()).get(1).equals("SE")){
                                     model.randomizeEnemy((int) ((List) evt.getNewValue()).get(3));
@@ -584,7 +626,7 @@ public class Battle {
                                                             + model.enemyName + ".png")
                                                             .getImage()
                                                             .getScaledInstance(210, 350, Image.SCALE_SMOOTH)));
-                                } else {
+                                } else if(((List)evt.getNewValue()).get(1).equals("BE")) {
                                     model.setBossEnemy(model.getPlayerInfo().getSelectedAreaFloor());
                                     enemyImageLabel.setIcon(
                                             new ImageIcon(
@@ -665,7 +707,6 @@ public class Battle {
             INTELLIGENCE,
             FAITH,
             DODGE,
-            DRINK_POTION,
             BACK
         }
 
@@ -681,7 +722,7 @@ public class Battle {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            if (actionState == ActionState.STRENGTH || actionState == ActionState.INTELLIGENCE || actionState == ActionState.FAITH || actionState == ActionState.DODGE || actionState == ActionState.DRINK_POTION) {
+            if (actionState == ActionState.STRENGTH || actionState == ActionState.INTELLIGENCE || actionState == ActionState.FAITH || actionState == ActionState.DODGE) {
 
                 if (actionState == ActionState.STRENGTH) {
                     model.playerStrengthAttack();
@@ -691,10 +732,7 @@ public class Battle {
                     model.playerFaithAttack();
                 } else if (actionState == ActionState.DODGE) {
                     isDodgedSuccess = model.isNextEnemyAttackDodged() ? 1 : 0;
-                } else if (actionState == ActionState.DRINK_POTION) {
-                    System.out.println("Drink Potion");
                 }
-
                 model.isPlayerTurn = false;
                 view.enableButtons(false);
                 model.nextEnemyAttack = model.getEnemyAttack();
@@ -741,9 +779,9 @@ public class Battle {
                     view.getFrame().getPlayerInfo().firePropertyChange("enemyDied", null, null);
                     model.getPlayerInfo().addRunes(runes);
                     return;
-
+                    
                 }
-
+                    
             }
 
         }
